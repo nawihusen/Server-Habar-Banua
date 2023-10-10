@@ -1,0 +1,34 @@
+- jangan jadikan entity sebagai request body
+
+@Service
+public class MyService {
+    private final RedisTemplate<String, String> redisTemplate;
+
+    @Autowired
+    public MyService(RedisTemplate<String, String> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+
+    public void setData(String key, String value) {
+        redisTemplate.opsForValue().set(key, value);
+    }
+
+    public String getData(String key) {
+        return redisTemplate.opsForValue().get(key);
+    }
+
+    public void deleteData(String key) {
+        redisTemplate.delete(key);
+    }
+}
+
+3:24
+
+if value is of type string -> GET <key>
+if value is of type hash -> HGET or HMGET or HGETALL <key>
+if value is of type lists -> lrange <key> <start> <end>
+if value is of type sets -> smembers <key>
+if value is of type sorted sets -> ZRANGEBYSCORE <key> <min> <max>
+if value is of type stream -> xread count <count> streams <key> <ID>. https://redis.io/commands/xread
+Use the TYPE command to check the type of value a key is mapping to:
+type <key>
