@@ -10,28 +10,31 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "news")
 @EntityListeners({AuditingEntityListener.class})
-public class User {
+public class Shop {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
-
-    private String password;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User userId;
 
     private String name;
 
-    private String phone;
+    private String desc;
+
+    private Integer stock;
+
+    private Integer price;
 
     @CreatedDate
     @Column(name = "created_at")
@@ -43,17 +46,4 @@ public class User {
 
     @Column(name = "deleted_at")
     private Instant deletedAt;
-
-    private String role;
-
-    @OneToMany(mappedBy = "userId")
-    private List<New> news;
-
-    @OneToMany(mappedBy = "userId")
-    private Shop shop;
-
-    private String token;
-
-    @Column(name = "token_expired")
-    private Long expiredAt;
 }
