@@ -7,27 +7,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.Instant;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "experiences")
+@Table(name = "projects")
 @EntityListeners({AuditingEntityListener.class})
-public class Experience {
+public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String companyName;
+    private String name;
 
-    private String role;
+    private String company;
 
-    private String description;
+    private String summary;
 
-    private Instant startDate;
-
-    private Instant endDate;
+    private String techStack;
 }

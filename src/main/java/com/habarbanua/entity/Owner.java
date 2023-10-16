@@ -19,13 +19,21 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Owner {
     private String name;
 
+    private String summary;
+
     private String address;
 
     private String phone;
 
     private String email;
 
+    private String status;
+
+    private String education;
+
     private String linkedId;
 
     private String github;
+
+    private String cv;
 }
