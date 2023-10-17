@@ -2,6 +2,7 @@ package com.habarbanua.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,6 +18,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Table(name = "owner")
 @EntityListeners({AuditingEntityListener.class})
 public class Owner {
+    @Id
     private String name;
 
     private String summary;

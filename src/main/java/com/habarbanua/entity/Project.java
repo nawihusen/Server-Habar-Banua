@@ -26,4 +26,6 @@ public class Project {
     private String summary;
 
     private String techStack;
+
+    private String github;
 }
