@@ -15,9 +15,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "owner")
+@Table(name = "portfolio")
 @EntityListeners({AuditingEntityListener.class})
-public class Owner {
+public class Portfolio {
     @Id
     private String name;
 
