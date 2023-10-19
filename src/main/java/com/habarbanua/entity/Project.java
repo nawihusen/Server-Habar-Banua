@@ -19,12 +19,17 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "owner", referencedColumnName = "name")
+    private Portfolio owner;
+
     private String name;
 
     private String company;
 
     private String summary;
 
+    @Column(name = "tech_stack")
     private String techStack;
 
     private String github;

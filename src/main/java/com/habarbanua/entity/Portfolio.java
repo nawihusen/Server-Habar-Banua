@@ -1,14 +1,13 @@
 package com.habarbanua.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,6 +17,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Table(name = "portfolio")
 @EntityListeners({AuditingEntityListener.class})
 public class Portfolio {
+
     @Id
     private String name;
 
@@ -33,9 +33,16 @@ public class Portfolio {
 
     private String education;
 
-    private String linkedId;
+    @Column(name = "linked_in")
+    private String linkedIn;
 
     private String github;
 
     private String cv;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Experience> experiences;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Project> projects;
 }

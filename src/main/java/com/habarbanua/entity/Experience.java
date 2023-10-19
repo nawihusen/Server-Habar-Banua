@@ -21,13 +21,20 @@ public class Experience {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "owner", referencedColumnName = "name")
+    private Portfolio owner;
+
+    @Column(name = "company_name")
     private String companyName;
 
     private String role;
 
     private String description;
 
+    @Column(name = "start_date")
     private Instant startDate;
 
+    @Column(name = "end_date")
     private Instant endDate;
 }
