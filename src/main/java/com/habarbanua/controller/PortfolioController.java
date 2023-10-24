@@ -50,6 +50,13 @@ public class PortfolioController {
         return Response.<String>builder().data("Success").build();
     }
 
+    @DeleteMapping(path = "/owner/experience/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Response<String> deleteExperience(@PathVariable("id") Long id) {
+        // tambah
+        return Response.<String>builder().data("Success").build();
+    }
+
+
     @GetMapping(path = "/owner/experience")
     public Response<Experience> getExperience(@RequestParam("id") Long id) {
         // tambah
@@ -69,6 +76,12 @@ public class PortfolioController {
 
     @PatchMapping(path = "/owner/project/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Response<String> patchProject(@PathVariable("id") Long id, ProjectModel project) {
+        // tambah
+        return Response.<String>builder().data("Success").build();
+    }
+
+    @DeleteMapping(path = "/owner/project/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Response<String> deleteProject(@PathVariable("id") Long id) {
         // tambah
         return Response.<String>builder().data("Success").build();
     }
