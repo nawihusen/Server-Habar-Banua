@@ -11,17 +11,17 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Table(name = "events")
-@EntityListeners({AuditingEntityListener.class})
-public class Event {
-    private Instant date;
-
-    private String title;
-
-    private String description;
-}
+//@Getter
+//@Setter
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Entity
+//@Table(name = "events")
+//@EntityListeners({AuditingEntityListener.class})
+//public class Event {
+//    private Instant date;
+//
+//    private String title;
+//
+//    private String description;
+//}

@@ -24,8 +24,8 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private UserRedis userRedis;
+//    @Autowired
+//    private UserRedis userRedis;
 
     @Autowired
     private ValidationService validationService;

@@ -3,27 +3,34 @@ package com.habarbanua.service.portfolio;
 import com.habarbanua.entity.Experience;
 import com.habarbanua.entity.Portfolio;
 import com.habarbanua.entity.Project;
+import com.habarbanua.model.portfolio.ExperienceModel;
+import com.habarbanua.model.portfolio.PortfolioModel;
+import com.habarbanua.model.portfolio.ProjectModel;
 import org.springframework.data.domain.PageImpl;
 
 import java.util.List;
 import java.util.Properties;
 
 public interface PortfolioService {
-    void postPortfolio(Portfolio owner);
+    void postPortfolio(PortfolioModel owner);
 
-    void updatePortfolio(Portfolio owner);
+    void updatePortfolio(PortfolioModel owner);
 
-    Portfolio getPortfolio();
+    PortfolioModel getPortfolio();
 
-    void addExperience(Experience experience);
+    void addExperience(ExperienceModel experience);
 
-    void updateExperience(Experience experience, Integer id);
+    void updateExperience(ExperienceModel experience, Integer id);
 
-    PageImpl<Experience> getExperiences();
+    PageImpl<ExperienceModel> getExperiences();
 
-    void addProject();
+    ExperienceModel getExperience(Long id);
 
-    void updateProject();
+    void addProject(ProjectModel project);
 
-    PageImpl<Project> getProject();
+    void updateProject(Long id, ProjectModel project);
+
+    PageImpl<ProjectModel> getProjects();
+
+    ProjectModel getProject(Long id);
 }

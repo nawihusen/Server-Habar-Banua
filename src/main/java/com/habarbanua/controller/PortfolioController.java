@@ -22,7 +22,7 @@ public class PortfolioController {
 
     @PostMapping(path = "/owner", consumes = MediaType.APPLICATION_JSON_VALUE)
     public  Response<String> postPortfolio(PortfolioModel portfolio){
-//        Tambahkan logic ke service
+        portfolioService.postPortfolio(portfolio);
         return Response.<String>builder().data("Success").build();
     }
 
@@ -57,8 +57,8 @@ public class PortfolioController {
     }
 
 
-    @GetMapping(path = "/owner/experience")
-    public Response<Experience> getExperience(@RequestParam("id") Long id) {
+    @GetMapping(path = "/owner/experience/{id}")
+    public Response<Experience> getExperience(@PathVariable("id") Long id) {
         // tambah
         return null;
     }
@@ -86,8 +86,8 @@ public class PortfolioController {
         return Response.<String>builder().data("Success").build();
     }
 
-    @GetMapping(path = "/owner/project")
-    public Response<Project> getProject(@RequestParam("id") Long id) {
+    @GetMapping(path = "/owner/project/{id}")
+    public Response<Project> getProject(@PathVariable("id") Long id) {
         // tambah
         return null;
     }

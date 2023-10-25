@@ -49,8 +49,8 @@ public class User {
     @OneToMany(mappedBy = "userId")
     private List<New> news;
 
-    @OneToMany(mappedBy = "userId")
-    private Shop shop;
+//    @OneToMany(mappedBy = "userId")
+//    private Shop shop;
 
     private String token;
 

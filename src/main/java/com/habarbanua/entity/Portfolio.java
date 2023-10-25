@@ -39,7 +39,7 @@ public class Portfolio {
     private String cv;
 
     @OneToMany(mappedBy = "owner")
-    private String education;
+    private List<Education> education;
 
     @OneToMany(mappedBy = "owner")
     private List<Experience> experiences;
