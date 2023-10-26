@@ -11,7 +11,7 @@ import com.habarbanua.model.portfolio.PortfolioModel;
 import com.habarbanua.model.portfolio.ProjectModel;
 import com.habarbanua.repository.mysql.*;
 import com.habarbanua.service.ValidationService;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
@@ -22,6 +22,8 @@ import java.util.Objects;
 
 @Service
 public class PortfolioServiceImpl implements PortfolioService{
+
+    private String owner = "Muhammad Nawi Husen";
 
     @Autowired
     private PortfolioRepository portfolioRepository;
@@ -56,7 +58,7 @@ public class PortfolioServiceImpl implements PortfolioService{
 
     @Override
     public void updatePortfolio(PortfolioModel portfolio) {
-        var port = portfolioRepository.findByName("Muhammad Nawi Husen"); // proof that i make this by myself
+        var port = portfolioRepository.findByName(owner); // proof that i make this by myself
 
         if (Objects.nonNull(portfolio.getSummary())){
             port.setSummary(portfolio.getSummary());
@@ -95,13 +97,23 @@ public class PortfolioServiceImpl implements PortfolioService{
 
     @Override
     public PortfolioModel getPortfolio() {
-        var port = portfolioRepository.findByName("Muhammad Nawi Husen");
+        var port = portfolioRepository.findByName(owner);
         return toModelPortfolio(port);
     }
 
     @Override
     public void addExperience(ExperienceModel experience) {
+        var port = portfolioRepository.findByName(owner);
 
+        Experience exp = new Experience();
+        exp.setOwner(port);
+        exp.setCompanyName(experience.getCompanyName());
+        exp.setRole(experience.getRole());
+        exp.setDescription(experience.getDescription());
+        exp.setStartDate(toInstantString(experience.getStartDate()));
+        exp.setEndDate(toInstantString(experience.getEndDate()));
+
+        experienceRepository.save(exp);
     }
 
     @Override
@@ -121,6 +133,8 @@ public class PortfolioServiceImpl implements PortfolioService{
 
     @Override
     public void addProject(ProjectModel project){
+        Project pro = new Project();
+
 
     }
 
