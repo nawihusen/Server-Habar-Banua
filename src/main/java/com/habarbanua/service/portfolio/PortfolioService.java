@@ -3,6 +3,7 @@ package com.habarbanua.service.portfolio;
 import com.habarbanua.entity.Experience;
 import com.habarbanua.entity.Portfolio;
 import com.habarbanua.entity.Project;
+import com.habarbanua.model.portfolio.EducationModel;
 import com.habarbanua.model.portfolio.ExperienceModel;
 import com.habarbanua.model.portfolio.PortfolioModel;
 import com.habarbanua.model.portfolio.ProjectModel;
@@ -20,9 +21,11 @@ public interface PortfolioService {
 
     void addExperience(ExperienceModel experience);
 
-    void updateExperience(ExperienceModel experience, Integer id);
+    void updateExperience(ExperienceModel experience, Long id);
 
-    PageImpl<ExperienceModel> getExperiences();
+    void deleteExperience(Long id);
+
+    PageImpl<ExperienceModel> getExperiences(int page, int limit, String sort);
 
     ExperienceModel getExperience(Long id);
 
@@ -30,7 +33,20 @@ public interface PortfolioService {
 
     void updateProject(Long id, ProjectModel project);
 
-    PageImpl<ProjectModel> getProjects();
+    void deleteProject(Long id);
+
+    PageImpl<ProjectModel> getProjects(int page, int limit, String sort);
 
     ProjectModel getProject(Long id);
+
+    void addEducation(EducationModel project);
+
+    void updateEducation(Long id, EducationModel project);
+
+    void deleteEducation(Long id);
+
+//    PageImpl<EducationModel> getEducations();
+    List<EducationModel> getEducations();
+
+    EducationModel getEducation(Long id);
 }
