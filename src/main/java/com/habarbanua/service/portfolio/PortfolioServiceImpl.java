@@ -118,8 +118,8 @@ public class PortfolioServiceImpl implements PortfolioService{
         exp.setCompanyName(experience.getCompanyName());
         exp.setRole(experience.getRole());
         exp.setDescription(experience.getDescription());
-        exp.setStartDate(toInstantString(experience.getStartDate()));
-        exp.setEndDate(toInstantString(experience.getEndDate()));
+        exp.setStartDate(experience.getStartDate());
+        exp.setEndDate(experience.getEndDate());
 
         experienceRepository.save(exp);
     }
@@ -142,11 +142,11 @@ public class PortfolioServiceImpl implements PortfolioService{
         }
 
         if (Objects.nonNull(experience.getCompanyName())){
-            exp.setStartDate(toInstantString(experience.getStartDate()));
+            exp.setStartDate(experience.getStartDate());
         }
 
         if (Objects.nonNull(experience.getCompanyName())){
-            exp.setEndDate(toInstantString(experience.getEndDate()));
+            exp.setEndDate(experience.getEndDate());
         }
 
 
@@ -347,8 +347,8 @@ public class PortfolioServiceImpl implements PortfolioService{
         model.setCompanyName(experience.getCompanyName());
         model.setRole(experience.getRole());
         model.setDescription(experience.getDescription());
-        model.setStartDate(toStringInstant(experience.getStartDate()));
-        model.setEndDate(toStringInstant(experience.getEndDate()));
+        model.setStartDate(experience.getStartDate());
+        model.setEndDate(experience.getEndDate());
 
         return model;
     }
@@ -378,10 +378,12 @@ public class PortfolioServiceImpl implements PortfolioService{
     }
 
     private String toStringInstant(Instant instant){
+
         return null;
     }
 
     private Instant toInstantString(String string){
+
         return null;
     }
 

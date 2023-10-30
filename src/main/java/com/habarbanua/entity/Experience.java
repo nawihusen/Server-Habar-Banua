@@ -33,8 +33,8 @@ public class Experience {
     private String description;
 
     @Column(name = "start_date")
-    private Instant startDate;
+    private String startDate;
 
     @Column(name = "end_date")
-    private Instant endDate;
+    private String endDate;
 }
