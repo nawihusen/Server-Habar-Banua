@@ -377,15 +377,15 @@ public class PortfolioServiceImpl implements PortfolioService{
         return model;
     }
 
-    private String toStringInstant(Instant instant){
-
-        return null;
-    }
-
-    private Instant toInstantString(String string){
-
-        return null;
-    }
+//    private String toStringInstant(Instant instant){
+//
+//        return null;
+//    }
+//
+//    private Instant toInstantString(String string){
+//
+//        return null;
+//    }
 
 }
 
