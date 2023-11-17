@@ -1,5 +1,6 @@
 package com.habarbanua.model.portfolio;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.habarbanua.entity.Education;
 import com.habarbanua.entity.Experience;
@@ -36,9 +37,12 @@ public class PortfolioModel {
 
     private String cv;
 
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<EducationModel> education;
 
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<ExperienceModel> experiences;
 
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<ProjectModel> projects;
 }

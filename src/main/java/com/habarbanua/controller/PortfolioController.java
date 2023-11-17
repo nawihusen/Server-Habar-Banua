@@ -27,13 +27,13 @@ public class PortfolioController {
     private PortfolioService portfolioService;
 
     @PostMapping(path = "/owner", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public  Response<String> postPortfolio(PortfolioModel portfolio){
+    public  Response<String> postPortfolio(@RequestBody PortfolioModel portfolio){
         portfolioService.postPortfolio(portfolio);
         return Response.<String>builder().data("Success").build();
     }
 
     @PatchMapping(path = "/owner", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public  Response<String> patchPortfolio(PortfolioModel portfolio){
+    public  Response<String> patchPortfolio(@RequestBody PortfolioModel portfolio){
         portfolioService.updatePortfolio(portfolio);
         return Response.<String>builder().data("Success").build();
     }
@@ -45,13 +45,13 @@ public class PortfolioController {
     }
 
     @PostMapping(path = "/owner/experience", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<String> postExperience(ExperienceModel experience){
+    public Response<String> postExperience(@RequestBody ExperienceModel experience){
         portfolioService.addExperience(experience);
         return Response.<String>builder().data("Success").build();
     }
 
     @PatchMapping(path = "/owner/experience/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<String> patchExperience(@PathVariable("id") Long id, ExperienceModel experience) {
+    public Response<String> patchExperience(@PathVariable("id") Long id,@RequestBody  ExperienceModel experience) {
         portfolioService.updateExperience(experience, id);
         return Response.<String>builder().data("Success").build();
     }
@@ -86,13 +86,13 @@ public class PortfolioController {
     }
 
     @PostMapping(path = "/owner/project", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<String> postProject(ProjectModel project){
+    public Response<String> postProject(@RequestBody ProjectModel project){
         portfolioService.addProject(project);
         return Response.<String>builder().data("Success").build();
     }
 
     @PatchMapping(path = "/owner/project/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<String> patchProject(@PathVariable("id") Long id, ProjectModel project) {
+    public Response<String> patchProject(@PathVariable("id") Long id,@RequestBody  ProjectModel project) {
         portfolioService.updateProject(id, project);
         return Response.<String>builder().data("Success").build();
     }
@@ -127,19 +127,19 @@ public class PortfolioController {
     }
 
     @PostMapping(path = "/owner/education",consumes = MediaType.APPLICATION_JSON_VALUE )
-    public Response<String> postEducation(EducationModel model){
+    public Response<String> postEducation(@RequestBody EducationModel model){
         portfolioService.addEducation(model);
         return Response.<String>builder().data("Success").build();
     }
 
     @PatchMapping(path = "/owner/education/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<String> patchEducation(EducationModel model,@PathVariable Long id){
+    public Response<String> patchEducation(@RequestBody EducationModel model,@PathVariable Long id){
         portfolioService.updateEducation(id, model);
         return Response.<String>builder().data("Success").build();
     }
 
     @DeleteMapping(path = "/owner/education/{id}")
-    public Response<String> deleteEducation(EducationModel model,@PathVariable Long id){
+    public Response<String> deleteEducation(@PathVariable Long id){
         portfolioService.deleteEducation(id);
         return Response.<String>builder().data("Success").build();
     }
