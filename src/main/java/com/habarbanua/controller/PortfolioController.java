@@ -56,7 +56,7 @@ public class PortfolioController {
         return Response.<String>builder().data("Success").build();
     }
 
-    @DeleteMapping(path = "/owner/experience/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path = "/owner/experience/{id}")
     public Response<String> deleteExperience(@PathVariable("id") Long id) {
         portfolioService.deleteExperience(id);
         return Response.<String>builder().data("Success").build();
@@ -97,7 +97,7 @@ public class PortfolioController {
         return Response.<String>builder().data("Success").build();
     }
 
-    @DeleteMapping(path = "/owner/project/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path = "/owner/project/{id}")
     public Response<String> deleteProject(@PathVariable("id") Long id) {
         portfolioService.deleteProject(id);
         return Response.<String>builder().data("Success").build();

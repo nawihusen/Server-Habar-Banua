@@ -196,6 +196,7 @@ public class PortfolioServiceImpl implements PortfolioService{
     }
 
     @Override
+    @Transactional
     public void updateProject(Long id, ProjectModel project){
         var pro = projectRepository.findById(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "project not found"));
@@ -224,6 +225,7 @@ public class PortfolioServiceImpl implements PortfolioService{
             pro.setGithub(project.getGithub());
         }
 
+        projectRepository.save(pro);
     }
 
     @Override
@@ -294,6 +296,7 @@ public class PortfolioServiceImpl implements PortfolioService{
             edu.setScore(education.getScore());
         }
 
+        educationRepository.save(edu);
     }
 
     @Override
