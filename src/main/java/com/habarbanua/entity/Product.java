@@ -16,24 +16,27 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "shops")
+@Table(name = "products")
 @EntityListeners({AuditingEntityListener.class})
-public class Shop {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User userId;
+    private Long userId;
+
+    private Long shopId;
 
     private String name;
 
-    private String desc;
+    private String description;
 
-    private String address;
+    private String photo;
 
+    private Long stock;
+
+    private Long price;
 
     @CreatedDate
     @Column(name = "created_at")
