@@ -4,15 +4,15 @@ import java.time.Instant;
 
 public class Helper {
 
-    static String sebuahHelper(){
+    public static String sebuahHelper(){
         return "";
     }
 
-    static String toStringInstant(Instant instant){
+    public static String toStringInstant(Instant instant){
         return "";
     }
 
-    static Instant toInstantString(String string){
+    public static Instant toInstantString(String string){
         return null;
     }
 }
