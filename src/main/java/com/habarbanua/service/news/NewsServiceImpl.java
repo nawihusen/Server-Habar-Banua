@@ -45,7 +45,7 @@ public class NewsServiceImpl implements NewsService{
         New news = newsRepository.findById(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "tidak di temukan"));
 
-        validationService.isSameNews(user.getId(), news.getUserId().getId());
+        validationService.isSameUser(user.getId(), news.getUserId().getId());
 
         if (Objects.nonNull(request.getContent())){
             news.setContent(request.getContent());
@@ -64,7 +64,7 @@ public class NewsServiceImpl implements NewsService{
         New news = newsRepository.findById(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "tidak di temukan"));
 
-        validationService.isSameNews(user.getId(), news.getUserId().getId());
+        validationService.isSameUser(user.getId(), news.getUserId().getId());
 
         newsRepository.delete(news);
     }

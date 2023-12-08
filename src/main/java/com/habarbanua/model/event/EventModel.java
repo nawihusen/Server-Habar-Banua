@@ -21,4 +21,8 @@ public class EventModel {
     private String description;
 
     private String location;
+
+    private String createdAt;
+
+    private String updatedAt;
 }

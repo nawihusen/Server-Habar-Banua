@@ -26,14 +26,14 @@ public class EventController {
         return Response.<String>builder().data("Success").build();
     }
 
-    @PatchMapping(path = "/event", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<String> patchEvent(User user,@RequestBody EventModel request){
-        eventService.editEvent(user,request);
+    @PatchMapping(path = "/event/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Response<String> patchEvent(User user,@RequestBody EventModel request, @PathVariable(name = "id") Long id){
+        eventService.editEvent(user, request, id);
         return Response.<String>builder().data("Success").build();
     }
 
     @DeleteMapping(path = "event/{id}")
-    private Response<String> deleletEvent(User user,@PathVariable(name = "id") Long id){
+    private Response<String> deleteEvent(User user,@PathVariable(name = "id") Long id){
         eventService.deleteEvent(user, id);
         return Response.<String>builder().data("Success").build();
     }

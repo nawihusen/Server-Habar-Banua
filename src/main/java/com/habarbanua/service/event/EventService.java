@@ -10,7 +10,7 @@ public interface EventService {
 
     void addEvent(User user, EventModel request);
 
-    void editEvent(User user,EventModel request);
+    void editEvent(User user,EventModel request, Long id);
 
     void deleteEvent(User user,Long id);
 
