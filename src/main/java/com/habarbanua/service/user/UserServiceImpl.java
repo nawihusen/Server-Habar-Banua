@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -47,6 +49,8 @@ public class UserServiceImpl implements UserService {
         user.setUsername(request.getUsername());
         user.setName(request.getUsername());
         user.setPassword(BCrypt.hashpw(request.getPassword(), BCrypt.gensalt()));
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
 
         userRepository.save(user);
     }
@@ -63,6 +67,9 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserResponse editProfile(UserUpdateRequest request, User user){
         // tambahkan validate jika ada
+        if (Objects.nonNull(request)){
+            user.setUpdatedAt(LocalDateTime.now());
+        }
 
         if (Objects.nonNull(request.getUsername())){
             user.setUsername(request.getUsername());

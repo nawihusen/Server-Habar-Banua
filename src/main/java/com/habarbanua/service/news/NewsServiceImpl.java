@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -35,6 +36,8 @@ public class NewsServiceImpl implements NewsService{
         news.setUserId(user);
         news.setContent(request.getContent());
         news.setTitle(request.getTitle());
+        news.setCreatedAt(LocalDateTime.now());
+        news.setUpdatedAt(LocalDateTime.now());
 
         newsRepository.save(news);
     }
@@ -46,6 +49,10 @@ public class NewsServiceImpl implements NewsService{
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "tidak di temukan"));
 
         validationService.isSameUser(user.getId(), news.getUserId().getId());
+
+        if (Objects.nonNull(request)){
+            news.setUpdatedAt(LocalDateTime.now());
+        }
 
         if (Objects.nonNull(request.getContent())){
             news.setContent(request.getContent());
@@ -105,9 +112,9 @@ public class NewsServiceImpl implements NewsService{
         newResponse.setUserId(aNew.getUserId().getId());
         newResponse.setTitle(aNew.getTitle());
         newResponse.setContent(aNew.getContent());
-        newResponse.setCreatedAt(aNew.getCreatedAt());
-        newResponse.setUpdatedAt(aNew.getUpdatedAt());
-        newResponse.setDeletedAt(aNew.getDeletedAt());
+        newResponse.setCreatedAt(aNew.getCreatedAt().toString());
+        newResponse.setUpdatedAt(aNew.getUpdatedAt().toString());
+        newResponse.setDeletedAt(aNew.getDeletedAt().toString());
         return newResponse;
     }
 }

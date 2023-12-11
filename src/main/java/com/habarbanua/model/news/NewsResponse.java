@@ -26,13 +26,13 @@ public class NewsResponse {
     private String content;
 
     @JsonProperty("created_at")
-    private Instant createdAt;
+    private String createdAt;
 
     @JsonProperty("updated_at")
-    private Instant updatedAt;
+    private String updatedAt;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("deleted_at")
-    private Instant deletedAt;
+    private String deletedAt;
 //    308 241 326
 }

@@ -31,7 +31,7 @@ public class EventServiceImpl implements EventService{
     @Transactional
     public void addEvent(User user, EventModel request) {
         var event = new Event();
-        event.setUserId(user.getId());
+        event.setUserId(user);
         event.setDate(Helper.toInstantString(request.getDate()));
         event.setTitle(request.getTitle());
         event.setDescription(request.getDescription());
@@ -94,12 +94,12 @@ public class EventServiceImpl implements EventService{
     private EventModel toModelEvent(Event event){
         EventModel result = new EventModel();
         result.setDate(Helper.toStringInstant(event.getDate()));
-        result.setUserId(event.getUserId());
+        result.setUserId(event.getUserId().getId());
         result.setLocation(event.getLocation());
         result.setDescription(event.getDescription());
         result.setTitle(event.getTitle());
-        result.setCreatedAt(Helper.toStringInstant(event.getCreatedAt()));
-        result.setUpdatedAt(Helper.toStringInstant(event.getUpdatedAt()));
+        result.setCreatedAt(event.getCreatedAt().toString());
+        result.setUpdatedAt(event.getUpdatedAt().toString());
 
         return result;
     }

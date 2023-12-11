@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class EventModel {
+    private Long id;
+
     @JsonProperty("user_id")
     private Long userId;
 
