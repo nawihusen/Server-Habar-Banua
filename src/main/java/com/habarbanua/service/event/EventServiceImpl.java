@@ -90,7 +90,7 @@ public class EventServiceImpl implements EventService{
 
         return new PageImpl<EventModel>(responses, pageable, events.getTotalElements());
     }
-
+//gasan add
     private EventModel toModelEvent(Event event){
         EventModel result = new EventModel();
         result.setDate(Helper.toStringInstant(event.getDate()));
